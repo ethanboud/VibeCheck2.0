@@ -1,11 +1,10 @@
 // TODO NEED TO WORK ON NAVBAR CSS
 
 import React from "react";
-import { Link } from "react-router-dom"
-import "../index.css"
-import { useState, useEffect } from 'react';
-import auth from '../utils/auth';
-
+import { Link } from "react-router-dom";
+import "../index.css";
+import { useState, useEffect } from "react";
+import auth from "../utils/auth";
 
 // interface NavbarProps {
 //     isLoggedIn: boolean;
@@ -25,33 +24,45 @@ const Navbar: React.FC = () => {
     checkLogin();
   }, [loginCheck]);
 
+  return (
+    <nav className="nav">
+      <h1 className="nav-title">Vibe Check</h1>
+      <div className="nav-right">
+        {!loginCheck ? (
+          <>
+            <button className="nav-login" type="button">
+              <Link to="/login">Login</Link>
+            </button>
 
-    return (
-        <nav className="nav">
-            <h1 className="nav-title">Vibe Check</h1>
-            <div>
-                {!loginCheck ? (
-                    <button className='btn' type='button'>
-                    <Link to='/login'>Login</Link>
-                    </button>
-                ) : (
-                <>
-                    <button className='btn' type='button' onClick={() => { auth.logout();}}>Logout
-                    </button>
+            <button className="nav-register" type="button">
+              <Link to="/register">Register</Link>
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              className="nav-logout"
+              type="button"
+              onClick={() => {
+                auth.logout();
+              }}
+            >
+              Logout
+            </button>
 
-                    <div className="nav-links">
-                        <Link to="/explore" className="nav-link">
-                        Explore
-                        </Link>
-                        <Link to="/liked-songs" className="nav-link">
-                        Liked Songs
-                        </Link>
-                    </div>
-                </>
-                )}
+            <div className="nav-links">
+              <Link to="/explore" className="nav-link">
+                Explore
+              </Link>
+              <Link to="/liked-songs" className="nav-link">
+                Liked Songs
+              </Link>
             </div>
-        </nav>
-    );
+          </>
+        )}
+      </div>
+    </nav>
+  );
 };
 
-export default Navbar
+export default Navbar;

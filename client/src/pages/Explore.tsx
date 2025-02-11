@@ -49,24 +49,26 @@ const Explore = () => {
     }
   };
 
-//   TODO: NEED TO FIX HANDLE PASS
-//   Pass a song (just fetch the next one)
+  //   TODO: NEED TO FIX HANDLE PASS
+  //   Pass a song (just fetch the next one)
   const handlePass = () => {
     fetchSong();
-  }
+  };
 
-    useEffect(() => {
-      fetchSong(); // Fetch the first song on component load
-    }, []);
+  useEffect(() => {
+    fetchSong(); // Fetch the first song on component load
+  }, []);
 
   return (
-    <div>
-      <h1>Check Your Vibe</h1>
+    <div className="explore-page">
+      <h1 className="explore-title">Check Your Vibe</h1>
       {currentSong && (
         <CardItem song={currentSong} onLike={handleLike} onPass={handlePass} />
       )}
-      <div>
-        <h1>Click here to generate a new genre to explore</h1>
+      <div className="genre-generator">
+        <h2 className="genre-title">
+          Click here to generate a new genre to explore
+        </h2>
         <GenreGenerator />
       </div>
     </div>
@@ -74,13 +76,6 @@ const Explore = () => {
 };
 
 export default Explore;
-
-
-
-
-
-
-
 
 // import React, {useState} from 'react';
 

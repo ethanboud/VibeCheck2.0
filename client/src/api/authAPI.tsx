@@ -1,11 +1,11 @@
-import type { UserLogin } from '../interfaces/UserLogin';
+import type { UserLogin } from "../interfaces/UserLogin";
 
 const login = async (userInfo: UserLogin) => {
   try {
-    const response = await fetch('/auth/login', {
-      method: 'POST',
+    const response = await fetch("/auth/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(userInfo),
     });
@@ -13,14 +13,38 @@ const login = async (userInfo: UserLogin) => {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error('User information not retrieved, check network tab!');
+      throw new Error("User information not retrieved, check network tab!");
     }
 
     return data;
   } catch (err) {
-    console.log('Error from user login: ', err);
-    return Promise.reject('Could not fetch user info');
+    console.log("Error from user login: ", err);
+    return Promise.reject("Could not fetch user info");
   }
 };
 
-export { login };
+const registerUser = async (userInfo: UserLogin) => {
+  try {
+    const response = await fetch("/auth/register", {
+      // Hitting the registration endpoint
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInfo),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error("User registration failed, check network tab!");
+    }
+
+    return data;
+  } catch (err) {
+    console.log("Error from user registration:", err);
+    return Promise.reject("could not register user");
+  }
+};
+
+export { login, registerUser };

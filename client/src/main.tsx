@@ -1,18 +1,17 @@
-import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
-
-import App from './App.tsx';
-
-import ErrorPage from './pages/ErrorPage.tsx';
-import Home from './pages/Home.tsx';
-import Login from './pages/Login.tsx';
-import LikedSongs from "./pages/Liked-Songs.tsx"
-import Explore from './pages/Explore.tsx';
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import App from "./App.tsx";
+import ErrorPage from "./pages/ErrorPage.tsx";
+import Home from "./pages/Home.tsx";
+import Login from "./pages/Login.tsx";
+import LikedSongs from "./pages/Liked-Songs.tsx";
+import Explore from "./pages/Explore.tsx";
+import Register from "./components/register.tsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
@@ -21,22 +20,26 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/login',
-        element: <Login/>,
+        path: "/login",
+        element: <Login />,
       },
       {
-        path: '/liked-songs',
-        element: <LikedSongs/>,
+        path: "/register",
+        element: <Register />,
       },
       {
-        path: '/explore',
-        element: <Explore/>,
+        path: "/liked-songs",
+        element: <LikedSongs />,
+      },
+      {
+        path: "/explore",
+        element: <Explore />,
       },
     ],
   },
 ]);
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(<RouterProvider router={router} />);
 }
