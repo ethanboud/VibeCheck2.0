@@ -35,10 +35,10 @@ const Register = () => {
   return (
     <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
-        <h1>Register</h1>
+        <h1 className="register-title">Register</h1>
 
-        <div className="username-form">
-          <label>Username</label>
+        <div className="username-input">
+          <label htmlFor="userName">Username</label>
           <input
             className="form-input"
             type="text"
@@ -49,8 +49,8 @@ const Register = () => {
           />
         </div>
 
-        <div className="password-form">
-          <label>Password</label>
+        <div className="password-input">
+          <label htmlFor="password">Password</label>
           <input
             className="form-input"
             type="password"
@@ -61,8 +61,8 @@ const Register = () => {
           />
         </div>
 
-        <div className="submit-form">
-          <button className="btn submit-button" type="submit">
+        <div className="button-div">
+          <button className="btn btn-register" type="submit">
             Create Account
           </button>
         </div>
