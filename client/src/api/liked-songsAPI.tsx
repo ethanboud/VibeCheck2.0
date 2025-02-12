@@ -1,23 +1,24 @@
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const getSongs = async () => {
   try {
-    const response = await fetch('/api/songs', {
+    const response = await fetch("/api/songs", {
+      // method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${Auth.getToken()}`,
       },
+      // body: JSON.stringify(userName),
     });
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error('invalid song API response, check network tab!');
+      throw new Error("invalid song API response, check network tab!");
     }
 
     return data;
-    
   } catch (err) {
-    console.log('Error from data retrieval:', err);
+    console.log("Error from data retrieval:", err);
     return [];
   }
 };

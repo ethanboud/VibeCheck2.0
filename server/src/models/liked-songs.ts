@@ -1,13 +1,14 @@
-import { DataTypes, type Sequelize, Model, type Optional } from 'sequelize';
+import { DataTypes, type Sequelize, Model, type Optional } from "sequelize";
 
 interface LikedSongsAttributes {
   id: number;
   title: string;
   artist: string;
-  assignedUserId: number;
+  assignedUserId: string;
 }
 
-interface LikedSongsCreationAttributes extends Optional<LikedSongsAttributes, 'id'> {}
+interface LikedSongsCreationAttributes
+  extends Optional<LikedSongsAttributes, "id"> {}
 
 export class LikedSongs
   extends Model<LikedSongsAttributes, LikedSongsCreationAttributes>
@@ -16,7 +17,7 @@ export class LikedSongs
   public id!: number;
   public title!: string;
   public artist!: string;
-  public assignedUserId!: number;
+  public assignedUserId!: string;
 }
 
 export function SongFactory(sequelize: Sequelize): typeof LikedSongs {
@@ -36,12 +37,12 @@ export function SongFactory(sequelize: Sequelize): typeof LikedSongs {
         allowNull: false,
       },
       assignedUserId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
     },
     {
-      tableName: 'liked_songs',
+      tableName: "liked_songs",
       sequelize,
     }
   );
