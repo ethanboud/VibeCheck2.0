@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express';
 import request from 'request';
 import dotenv from 'dotenv';
 
-const port = 5000;
+const port = 3002;
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ dotenv.config();
 const spotify_client_id = process.env.SPOTIFY_CLIENT_ID || '';
 const spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET || '';
 
-const spotify_redirect_uri = 'http://localhost:5000/auth/callback';
+const spotify_redirect_uri = 'http://localhost:3000/spotifyauth/callback';
 
 const generateRandomString = (length: number): string => {
   let text = '';
@@ -28,7 +28,7 @@ const generateRandomString = (length: number): string => {
 
 const app = express();
 
-app.get('/login', ( res: Response) => {
+app.get('/spotifyauth/login', ( res: Response) => {
   const scope = "streaming user-read-email user-read-private";
   const state = generateRandomString(16);
 
@@ -43,7 +43,7 @@ app.get('/login', ( res: Response) => {
   res.redirect('https://accounts.spotify.com/authorize/?' + auth_query_parameters.toString());
 });
 
-app.get('/callback', (req: Request, res: Response) => {
+app.get('/spotifyauth/callback', (req: Request, res: Response) => {
   const code = req.query.code as string;
 
   const authOptions = {
@@ -68,7 +68,7 @@ app.get('/callback', (req: Request, res: Response) => {
   });
 });
 
-app.get('/token', ( res: Response) => {
+app.get('/spotifyauth/token', ( res: Response) => {
   res.json({ access_token: (global as any).access_token = ''});
 });
 

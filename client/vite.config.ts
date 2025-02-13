@@ -16,9 +16,16 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       },
+      '/spotifyauth': {
+        target: 'http://localhost:3002',
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 });
+
+
 
 
 // import { createProxyMiddleware } from 'http-proxy-middleware';

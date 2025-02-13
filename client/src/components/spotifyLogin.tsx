@@ -2,7 +2,7 @@ function SpotifyLogin() {
     return (
         <div className="App">
             <header className="App-header">
-                <a className="btn-spotify" href="/spotify/login" >
+                <a className="btn-spotify" href="/spotifyauth/login" >
                     Login with Spotify 
                 </a>
             </header>

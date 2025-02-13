@@ -142,7 +142,7 @@ main {
   justify-content: space-between;
   background-color: var(--primary-bg);
   padding: 15px 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
   position: relative;
   top: 0;
   z-index: 1000;
@@ -208,9 +208,8 @@ main {
 .login-container {
   display: flex;
   align-items: center;
-  justify-content: start;
-  height: 100vh;
-  background: linear-gradient(135 deg, #0f0f0f, #1a1a1a);
+  justify-content: center;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
   padding: 20px;
   box-sizing: border-box;
 }
@@ -226,45 +225,56 @@ main {
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   width: 100%;
+  max-width: 600px;
 }
 
 /* Login Title */
-.login-form h1 {
+.login-title {
   text-align: center;
-  font-size: 2em;
-  color: var(--accent-color);
+  color: var(--accent-color); /* Slightly different from Register */
   margin-bottom: 10px;
 }
 
 .login-form input {
   padding: 12px;
-  border: 1px solid var(--link-color);
+  border: 1px solid var(--secondary-color);
   border-radius: 8px;
   background-color: var(--hover-bg);
   color: var(--text-color);
   font-size: 1em;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
 }
 
 .login-form input:focus {
   border-color: var(--accent-color);
   outline: none;
-  box-shadow: 0 0 5px rgba(255, 2, 102, 0.5);
+  box-shadow: 0 0 8px rgba(255, 2, 102, 0.5);
 }
 
-/* Input Field Wrappers */
-.username-input,
-.password-input {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-/* Input Labels */
-.username-input label,
-.password-input label {
+/* Labels */
+.login-form label {
   color: var(--text-color);
   font-size: 1em;
+  margin-bottom: 5px;
+}
+
+/* Submit Button Styling */
+.btn-login {
+  background-color: var(--accent-color);
+  border: none;
+  color: var(--text-color);
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: var(--hover-bg);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
 }
 
 /* Input Fields */
@@ -311,16 +321,6 @@ main {
   box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
 }
 
-/* Optional: Error Message Styling */
-.error-message {
-  color: #ff4d4f;
-  background-color: #2a0000;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
 /* Explore Page Container */
 .explore-page {
   display: flex;
@@ -351,4 +351,158 @@ main {
 .genre-title {
   color: var(--secondary-color);
   margin-bottom: 15px;
+}
+
+/* Register Page Container */
+.register-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Register Form Styling */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--primary-bg);
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Register Title */
+.register-title {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+/* Input Fields */
+.register-form input {
+  padding: 12px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  background-color: var(--hover-bg);
+  color: var(--text-color);
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.register-form input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 2, 102, 0.5);
+}
+
+/* Labels */
+.register-form label {
+  color: var(--text-color);
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+/* Submit Button Styling */
+.btn-register {
+  background-color: var(--accent-color);
+  border: none;
+  color: var(--text-color);
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-register:hover {
+  background-color: var(--hover-color);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+}
+
+/* Liked Songs Container */
+.ls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+}
+
+/* Liked Songs Title */
+.ls-title {
+  color: var(--accent-color);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.ls-empty-message {
+  color: var(--secondary-color);
+  margin-top: 20px;
+}
+
+.ls-ul {
+  list-style: none;
+  width: 100%;
+  max-width: 600px;
+}
+
+.ls-li {
+  background-color: var(--hover-bg);
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255, 2, 102, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hover Effect on Song Item */
+.ls-li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+  background-color: var(--secondary-color);
+  color: var(--primary-bg);
+}
+
+/* Song Title */
+.ls-song-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Song Artist */
+.ls-song-artist {
+  font-size: 1rem;
+  color: var(--secondary-color);
+}
+
+/* Hover effect on title and artist */
+.ls-li:hover .ls-song-title,
+.ls-li:hover .ls-song-artist {
+  color: var(--primary-bg);
+}
+
+.delete-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-button:hover {
+  background-color: darkred;
 }

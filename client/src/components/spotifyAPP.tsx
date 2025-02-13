@@ -10,7 +10,7 @@ function SpotifyApp() {
   useEffect(() => {
 
     async function getToken() {
-      const response = await fetch('/spotify/token');
+      const response = await fetch('/token');
       const json = await response.json();
       setToken(json.access_token);
     }
@@ -21,7 +21,7 @@ function SpotifyApp() {
 
   return (
     <>
-        { (token === '') ? <Login/> : <WebPlayback token={token} /> }
+        { (token === '') ? <Login/> : WebPlayback }
     </>
   );
 }
