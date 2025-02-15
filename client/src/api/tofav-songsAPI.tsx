@@ -1,3 +1,5 @@
+//TODO IMPLEMENT FUNCTION TO BE USED ON "HANDLE LIKE" ONCE CREATED. 
+
 import type { Songs } from '../interfaces/Songs';
 
 const favSong = async (songInfo: Songs) => {

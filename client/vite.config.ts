@@ -15,7 +15,22 @@ export default defineConfig({
         target: 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
-      },
-    },
+      }
+       },
   },
 });
+
+
+
+
+// import { createProxyMiddleware } from 'http-proxy-middleware';
+
+// import { Application } from 'express';
+
+// module.exports = function (app: Application) {
+//     app.use('/auth/**', 
+//         createProxyMiddleware({ 
+//             target: 'http://localhost:3000'
+//         })
+//     );
+// };
