@@ -20,10 +20,6 @@ const GenreGenerator = () => {
       <p>Genre: {genreData}</p>
     </React.Fragment>
   );
-<<<<<<< HEAD
-} 
-=======
 };
->>>>>>> ab7f7abaab63883d14860675c3050222f8e1f64a
 
 export default GenreGenerator;

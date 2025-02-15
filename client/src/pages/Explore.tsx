@@ -1,7 +1,8 @@
 // TODO NEED TO BUILD OUT SPOTIFY/MUSIC PLAYER PORTION
 
 import GenreGenerator from "../components/genre-generator";
-import SpotifyApp from "../components/spotifyAPP";
+// import SpotifyApp from "../components/spotifyAPP";
+import SpotifyLogin from "../components/spotifyLogin";
 
 
 const Explore = () => {
@@ -20,7 +21,21 @@ const Explore = () => {
         <h2>
           Click here to link with Spotify
         </h2>
-        <SpotifyApp/>
+        <SpotifyLogin/>
+      </div>
+      <div>
+      <h1>Display your Spotify profile data</h1>
+<section id="profile">
+<h2>Logged in as <span id="displayName"></span></h2>
+<span id="avatar"></span>
+<ul>
+    <li>User ID: <span id="id"></span></li>
+    <li>Email: <span id="email"></span></li>
+    <li>Spotify URI: <a id="uri" href="#"></a></li>
+    <li>Link: <a id="url" href="#"></a></li>
+    <li>Profile Image: <span id="imgUrl"></span></li>
+</ul>
+</section>
       </div>
     </div>
   );
