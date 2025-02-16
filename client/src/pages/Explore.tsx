@@ -1,101 +1,44 @@
 // TODO NEED TO BUILD OUT SPOTIFY/MUSIC PLAYER PORTION
 
-import { useEffect, useState } from "react";
-import CardItem, { CardItemProps } from "../components/card-item";
 import GenreGenerator from "../components/genre-generator";
+// import SpotifyApp from "../components/spotifyAPP";
+import SpotifyLogin from "../components/spotifyLogin";
 
-type Song = CardItemProps["song"];
 
 const Explore = () => {
-  const [currentSong, setCurrentSong] = useState<Song | null>(null);
-  const userId = ""; // Replace with actual user data or fetch from context/local storage
-
-  // Fetch a song from Spotify API (replace the URL with actual API call)
-  const fetchSong = async () => {
-    try {
-      const response = await fetch(
-        "https://api.spotify.com/v1/recommendations",
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`, //Use your Spotify token
-          },
-        }
-      );
-      const data = await response.json();
-      setCurrentSong(data.tracks[0]);
-    } catch (error) {
-      console.error("Error fetching song:", error);
-    }
-  };
-
-  // Like a song
-  const handleLike = async () => {
-    if (!currentSong) return;
-
-    try {
-      await fetch(`http://localhost:3001/api/songs`, {
-        method: "POST",
-        headers: { "Content-Type": "application.json" },
-        body: JSON.stringify({
-          userId: userId,
-          songId: currentSong.id,
-          title: currentSong.title,
-          artist: currentSong.artist[0].name,
-        }),
-      });
-      fetchSong(); // Fetch the next song arfter linking
-    } catch (error) {
-      console.error("Error linking song:", error);
-    }
-  };
-
-  //   TODO: NEED TO FIX HANDLE PASS
-  //   Pass a song (just fetch the next one)
-  const handlePass = () => {
-    fetchSong();
-  };
-
-  useEffect(() => {
-    fetchSong(); // Fetch the first song on component load
-  }, []);
+ 
 
   return (
     <div className="explore-page">
       <h1 className="explore-title">Check Your Vibe</h1>
-      {currentSong && (
-        <CardItem song={currentSong} onLike={handleLike} onPass={handlePass} />
-      )}
       <div className="genre-generator">
         <h2 className="genre-title">
           Click here to generate a new genre to explore
         </h2>
         <GenreGenerator />
       </div>
+      <div>
+        <h2>
+          Click here to link with Spotify
+        </h2>
+        <SpotifyLogin/>
+      </div>
+      <div>
+      <h1>Display your Spotify profile data</h1>
+<section id="profile">
+<h2>Logged in as <span id="displayName"></span></h2>
+<span id="avatar"></span>
+<ul>
+    <li>User ID: <span id="id"></span></li>
+    <li>Email: <span id="email"></span></li>
+    <li>Spotify URI: <a id="uri" href="#"></a></li>
+    <li>Link: <a id="url" href="#"></a></li>
+    <li>Profile Image: <span id="imgUrl"></span></li>
+</ul>
+</section>
+      </div>
     </div>
   );
 };
 
 export default Explore;
-
-// import React, {useState} from 'react';
-
-// const Explore = () => {
-
-//   const [genreData, setGenreData] = useState("")
-
-//   const fetchGenre = async() => {
-//     const res = await fetch('https://binaryjazz.us/wp-json/genrenator/v1/genre/')
-//     const data = await res.json()
-//     console.log(data);
-//     setGenreData(data);
-//   }
-//   return (
-//     <React.Fragment>
-//       <p> Press button, receive random genre</p>
-//       <button onClick={fetchGenre}>CLICK ME</button>
-//       <p>Genre: {genreData}</p>
-//     </React.Fragment>
-//   );
-// }
-
-// export default Explore;
