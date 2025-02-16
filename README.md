@@ -6,10 +6,15 @@
 
 ## Features
 
-- **Button-Based Song Rating** – Click **Like** or **Dislike** to rate a song.
 - **Favorites List** – Save liked songs for easy access.
 - **Genre Exploration** – Generate and explore different genres.
 - **Simple & Responsive UI** – Designed for a smooth user experience.
+- **Personal Secure Account** – Create your own account with a saved username and password to access your favorites list.
+
+## Upcoming Features
+- **Linking Spotify** – Link your personal spotify client to add songs directly from vibecheck to you spotify account. 
+- **Button-Based Song Rating** – Click **Like** or **Dislike** to rate a song.
+- **Built In Player** – Using the Spotify API Webplayer to immediately sample music pulled from the genre created.
 
 ## Technologies Used
 
@@ -17,7 +22,7 @@
 - **Backend:** Node.js, Express.js
 - **Database:** PostgreSQL with Sequelize ORM
 - **Authentication:** JWT
-- **APIs:** Spotify API (or other music API for song snippets)
+- **APIs:** Spotify API, BinaryJazz Genrenator (genre generator)
 - **Deployment:** Render
 
 ## Installation & Setup
