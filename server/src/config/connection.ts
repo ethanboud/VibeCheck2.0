@@ -11,7 +11,7 @@ const sequelize = process.env.DB_URL
       process.env.DB_PASSWORD,
       {
         port: 5432,
-        host: 'DB_HOST',
+        host: 'dpg-cup5rudds78s738r1r00-a',
         dialect: 'postgres',
         dialectOptions: {
           decimalNumbers: true,
