@@ -3,12 +3,14 @@ import auth from '../utils/auth';
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-
     const [loginCheck, setLoginCheck] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
-    }, [loginCheck]);
+        if (loginCheck) {
+            navigate("/explore");
+        }
+    }, [loginCheck, navigate]);
 
     useLayoutEffect(() => {
         checkLogin();
@@ -24,14 +26,11 @@ const Home = () => {
         <>
             {
                 !loginCheck ? (
-                    <div className='login-notice'>
-                        <h1>
-                            Login to Get Started!
-                        </h1>
+                    <div className="login-notice">
+                        <h1>Login to Get Started!</h1>
                     </div>
-                ) : (
-                    navigate("/explore")
-                )}
+                ) : null /* Navigation is handled by useEffect */
+            }
         </>
     );
 };
